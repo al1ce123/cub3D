@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:18:27 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:11 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:51:08 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	open_doors(t_data *d)
 			yo = -25;
 		else
 			yo = 25;
-		if (d->map[(int)((d->py + yo) / 64.0)*d->mapWidth
+		if (d->map[(int)((d->py + yo) / 64.0)*d->mapwidth
 			+ (int)((d->px - xo) / 64.0)] == '4')
-			d->map[(int)((d->py + yo) / 64.0)*d->mapWidth
+			d->map[(int)((d->py + yo) / 64.0)*d->mapwidth
 				+ (int)((d->px - xo) / 64.0)] = '0';
 	}
 }

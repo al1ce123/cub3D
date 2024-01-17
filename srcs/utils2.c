@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:18:53 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:33 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:22:47 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	draw_line_ceil(t_point *pc1, t_point *pc2, t_data *d)
 		if (pc1->x == pc2->x && pc1->y == pc2->y)
 			break ;
 		mlx_put_pixel(d->world, pc1->x, pc1->y,
-			get_rgba(d->RC, d->GC, d->BC, d->TC));
+			get_rgba(d->rc, d->gc, d->bc, d->tc));
 		e2 = 2 * d->err;
 		if (e2 >= d->dy)
 		{
@@ -77,7 +77,7 @@ void	draw_line_floor(t_point *pf1, t_point *pf2, t_data *d)
 		if (pf1->x == pf2->x && pf1->y == pf2->y)
 			break ;
 		mlx_put_pixel(d->world, pf1->x, pf1->y,
-			get_rgba(d->RF, d->GF, d->BF, d->TF));
+			get_rgba(d->rf, d->gf, d->bf, d->tf));
 		e2 = 2 * d->err;
 		if (e2 >= d->dy)
 		{

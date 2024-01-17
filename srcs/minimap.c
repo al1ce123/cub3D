@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:42:49 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:18 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:39:58 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	draw_minimap(t_data *d)
 			check_minimap(d);
 			i++;
 		}
-		d->pos_start += d->mapWidth;
+		d->pos_start += d->mapwidth;
 		i = d->pos_start;
 	}
 }

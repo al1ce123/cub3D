@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:06:34 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:06:36 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:34:15 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,24 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-# define PI 3.14159265
-# define P2 (PI / 2)
-# define P3 (3 * PI / 2)
+# define PI 3.1415
+# define P2 1.5707
+# define P3 4.7121
 # define DR 0.0174533
 # define WIDTH 1200
 # define HEIGHT 600
-# define BPP sizeof(int32_t)
 
 typedef struct s_textures
 {
-	char		*NO_path;
-	char		*SO_path;
-	char		*EA_path;
-	char		*WE_path;
-	mlx_image_t	*NO_img;
-	mlx_image_t	*SO_img;
-	mlx_image_t	*EA_img;
-	mlx_image_t	*WE_img;
-	mlx_image_t	*DO_img;
+	char		*no_path;
+	char		*so_path;
+	char		*ea_path;
+	char		*we_path;
+	mlx_image_t	*no_img;
+	mlx_image_t	*so_img;
+	mlx_image_t	*ea_img;
+	mlx_image_t	*we_img;
+	mlx_image_t	*do_img;
 	mlx_image_t	*torch;
 	mlx_image_t	*torch1;
 	mlx_image_t	*torch2;
@@ -63,17 +62,17 @@ typedef struct s_data
 	float		pdx;
 	float		pdy;
 	float		pa;
-	int			mapWidth;
-	int			mapHeight;
-	int			squareSize;
-	int			RF;
-	int			GF;
-	int			BF;
-	int			TF;
-	int			RC;
-	int			GC;
-	int			BC;
-	int			TC;
+	int			mapwidth;
+	int			mapheight;
+	int			squaresize;
+	int			rf;
+	int			gf;
+	int			bf;
+	int			tf;
+	int			rc;
+	int			gc;
+	int			bc;
+	int			tc;
 	int			vertical;
 	int			north;
 	int			east;
@@ -88,20 +87,20 @@ typedef struct s_data
 	float		ca;
 	float		xo;
 	float		yo;
-	float		disT;
-	float		disH;
-	float		disV;
+	float		dist;
+	float		dish;
+	float		disv;
 	float		hx;
 	float		hy;
-	float		aTan;
-	float		nTan;
+	float		atan;
+	float		ntan;
 	float		vx;
 	float		vy;
 	int			cpt;
-	float		lineH;
+	float		lineh;
 	float		ty_step;
 	float		ty_off;
-	float		lineO;
+	float		lineo;
 	float		ty;
 	float		tx;
 	int			door;

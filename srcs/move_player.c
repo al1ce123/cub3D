@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:18:40 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:22 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:39:58 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ void	move_forward(t_data *d)
 		yo = 20;
 	if (mlx_is_key_down(d->mlx, MLX_KEY_W))
 	{
-		if (d->map[(int)(d->py / 64.0) * d->mapWidth
+		if (d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px + xo) / 64.0)] != '1'
-			&& d->map[(int)(d->py / 64.0) * d->mapWidth
+			&& d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px + xo) / 64.0)] != '4')
 			d->px += d->pdx;
-		if (d->map[(int)((d->py + yo) / 64.0) *d->mapWidth
+		if (d->map[(int)((d->py + yo) / 64.0) *d->mapwidth
 			+ (int)(d->px / 64.0)]
 			!= '1' && d->map[(int)((d->py + yo) / 64.0)
-			*d->mapWidth + (int)(d->px / 64.0)] != '4')
+			*d->mapwidth + (int)(d->px / 64.0)] != '4')
 			d->py += d->pdy;
 	}
 }
@@ -55,15 +55,15 @@ void	move_backwards(t_data *d)
 		yo = 20;
 	if (mlx_is_key_down(d->mlx, MLX_KEY_S))
 	{
-		if (d->map[(int)(d->py / 64.0) * d->mapWidth
+		if (d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px - xo) / 64.0)] != '1'
-			&& d->map[(int)(d->py / 64.0) * d->mapWidth
+			&& d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px - xo) / 64.0)] != '4')
 			d->px -= d->pdx;
-		if (d->map[(int)((d->py - yo) / 64.0) *d->mapWidth
+		if (d->map[(int)((d->py - yo) / 64.0) *d->mapwidth
 			+ (int)(d->px / 64.0)] != '1'
 			&& d->map[(int)((d->py - yo) / 64.0)
-			*d->mapWidth + (int)(d->px / 64.0)] != '4')
+			*d->mapwidth + (int)(d->px / 64.0)] != '4')
 			d->py -= d->pdy;
 	}
 }
@@ -83,15 +83,15 @@ void	move_left(t_data *d)
 		yo = 20;
 	if (mlx_is_key_down(d->mlx, MLX_KEY_A))
 	{
-		if (d->map[(int)(d->py / 64.0) * d->mapWidth
+		if (d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px - xo) / 64.0)] != '1'
-			&& d->map[(int)(d->py / 64.0) * d->mapWidth
+			&& d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px - xo) / 64.0)] != '4')
 			d->px -= cos(d->pa + P2) * 5;
-		if (d->map[(int)((d->py - yo) / 64.0) *d->mapWidth
+		if (d->map[(int)((d->py - yo) / 64.0) *d->mapwidth
 			+ (int)(d->px / 64.0)] != '1'
 			&& d->map[(int)((d->py - yo) / 64.0)
-			*d->mapWidth + (int)(d->px / 64.0)] != '4')
+			*d->mapwidth + (int)(d->px / 64.0)] != '4')
 			d->py -= sin(d->pa + P2) * 5;
 	}
 }
@@ -111,15 +111,15 @@ void	move_right(t_data *d)
 		yo = 20;
 	if (mlx_is_key_down(d->mlx, MLX_KEY_D))
 	{
-		if (d->map[(int)(d->py / 64.0) * d->mapWidth
+		if (d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px + xo) / 64.0)] != '1'
-			&& d->map[(int)(d->py / 64.0) * d->mapWidth
+			&& d->map[(int)(d->py / 64.0) * d->mapwidth
 			+ (int)((d->px + xo) / 64.0)] != '4')
 			d->px += cos(d->pa + P2) * 5;
 		if (d->map[(int)((d->py + yo) / 64.0)
-			*d->mapWidth + (int)(d->px / 64.0)] != '1'
+			*d->mapwidth + (int)(d->px / 64.0)] != '1'
 			&& d->map[(int)((d->py + yo) / 64.0)
-			*d->mapWidth + (int)(d->px / 64.0)] != '4')
+			*d->mapwidth + (int)(d->px / 64.0)] != '4')
 			d->py += sin(d->pa + P2) * 5;
 	}
 }

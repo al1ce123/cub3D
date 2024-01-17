@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:17:58 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:06:59 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:39:32 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,39 @@
 void	draw_rays_init(t_data *d)
 {
 	d->dof = 0;
-	d->disH = 1000000;
+	d->dish = 1000000;
 	d->hx = d->px;
 	d->hy = d->py;
-	d->aTan = -1 / tan(d->ra);
+	d->atan = -1 / tan(d->ra);
 }
 
 void	draw_rays_init2(t_data *d)
 {
 	d->dof = 0;
-	d->disV = 1000000;
+	d->disv = 1000000;
 	d->vx = d->px;
 	d->vy = d->py;
-	d->nTan = -tan(d->ra);
+	d->ntan = -tan(d->ra);
 }
 
 void	init_for_textures(t_data *d)
 {
 	d->ca = d->pa - d->ra;
 	reset_pi(&d->ca);
-	d->disT = d->disT * cos(d->ca);
-	d->lineH = (d->squareSize * HEIGHT) / d->disT;
-	d->ty_step = 32.0 / d->lineH;
+	d->dist = d->dist * cos(d->ca);
+	d->lineh = (d->squaresize * HEIGHT) / d->dist;
+	d->ty_step = 32.0 / d->lineh;
 	d->ty_off = 0;
 }
 
 void	checks_for_textures(t_data *d)
 {
-	if (d->lineH > HEIGHT)
+	if (d->lineh > HEIGHT)
 	{
-		d->ty_off = (d->lineH - HEIGHT) / 2.0;
-		d->lineH = HEIGHT;
+		d->ty_off = (d->lineh - HEIGHT) / 2.0;
+		d->lineh = HEIGHT;
 	}
-	d->lineO = (HEIGHT / 2) - d->lineH / 2;
+	d->lineo = (HEIGHT / 2) - d->lineh / 2;
 	d->ty = d->ty_off * d->ty_step;
 	if (d->vertical)
 	{
@@ -68,21 +68,21 @@ void	check_wall_hit(t_data *d)
 	d->vertical = 1;
 	d->north = 1;
 	d->east = 1;
-	if (d->disV < d->disH)
+	if (d->disv < d->dish)
 	{
 		if (d->vx < d->px)
 			d->east = 0;
 		d->rx = d->vx;
 		d->ry = d->vy;
-		d->disT = d->disV;
+		d->dist = d->disv;
 	}
-	if (d->disH < d->disV)
+	if (d->dish < d->disv)
 	{
 		if (d->hy < d->py)
 			d->north = 0;
 		d->vertical = 0;
 		d->rx = d->hx;
 		d->ry = d->hy;
-		d->disT = d->disH;
+		d->dist = d->dish;
 	}
 }

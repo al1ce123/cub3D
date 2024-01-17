@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:18:47 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:29 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:39:58 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	find_player_x_and_y(t_data *d, int *coord_x, int *coord_y)
 
 	x = 0;
 	y = 0;
-	while (y < d->mapHeight)
+	while (y < d->mapheight)
 	{
-		while (x < d->mapWidth)
+		while (x < d->mapwidth)
 		{
-			if (d->map[y * d->mapWidth + x] == 'S'
-				|| d->map[y * d->mapWidth + x] == 'N'
-				|| d->map[y * d->mapWidth + x] == 'E'
-				|| d->map[y * d->mapWidth + x] == 'W')
+			if (d->map[y * d->mapwidth + x] == 'S'
+				|| d->map[y * d->mapwidth + x] == 'N'
+				|| d->map[y * d->mapwidth + x] == 'E'
+				|| d->map[y * d->mapwidth + x] == 'W')
 			{
 				*coord_x = x;
 				*coord_y = y;

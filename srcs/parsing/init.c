@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:26:01 by jlecorne          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:53 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:40:39 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ char	*get_color(char **tab, char *cmp)
 	return (ft_substr(tab[i], k, (j - k)));
 }
 
-char	*get_map(t_data *cub, char **tab)
+char	*get_map(t_data *d, char **tab)
 {
 	char	*map;
 	int		i;
 	int		j;
 	int		k;
 
-	map = ft_calloc(sizeof(char), (cub->mapHeight * cub->mapWidth) + 1);
+	map = ft_calloc(sizeof(char), (d->mapheight * d->mapwidth) + 1);
 	if (!map)
 		return (NULL);
 	i = -1;
@@ -76,7 +76,7 @@ char	*get_map(t_data *cub, char **tab)
 	while (tab[++i])
 	{
 		j = -1;
-		while (++j < cub->mapWidth)
+		while (++j < d->mapwidth)
 		{
 			if (!is_eol(tab[i], j) && tab[i][j] && tab[i][j] != 0
 				&& tab[i][j] != ' ' && tab[i][j] != '\n')
@@ -88,58 +88,58 @@ char	*get_map(t_data *cub, char **tab)
 	return (map);
 }
 
-int	get_cub(t_data *cub, char **ftab, char **tmp)
+int	get_cub(t_data *d, char **ftab, char **tmp)
 {
-	cub->squareSize = 64;
-	cub->mapHeight = map_h(tmp);
-	cub->mapWidth = map_w(tmp);
-	cub->map = get_map(cub, tmp);
-	if (!cub->map)
+	d->squaresize = 64;
+	d->mapheight = map_h(tmp);
+	d->mapwidth = map_w(tmp);
+	d->map = get_map(d, tmp);
+	if (!d->map)
 		return (1);
-	cub->ccolor = get_color(ftab, "C ");
-	if (!cub->ccolor)
+	d->ccolor = get_color(ftab, "C ");
+	if (!d->ccolor)
 		return (1);
-	cub->fcolor = get_color(ftab, "F ");
-	if (!cub->fcolor)
+	d->fcolor = get_color(ftab, "F ");
+	if (!d->fcolor)
 		return (1);
-	cub->t->NO_path = get_path(ftab, "NO ", "N ");
-	if (!cub->t->NO_path)
+	d->t->no_path = get_path(ftab, "NO ", "N ");
+	if (!d->t->no_path)
 		return (1);
-	cub->t->SO_path = get_path(ftab, "SO ", "S ");
-	if (!cub->t->SO_path)
+	d->t->so_path = get_path(ftab, "SO ", "S ");
+	if (!d->t->so_path)
 		return (1);
-	cub->t->WE_path = get_path(ftab, "WE ", "W ");
-	if (!cub->t->WE_path)
+	d->t->we_path = get_path(ftab, "WE ", "W ");
+	if (!d->t->we_path)
 		return (1);
-	cub->t->EA_path = get_path(ftab, "EA ", "E ");
-	if (!cub->t->EA_path)
+	d->t->ea_path = get_path(ftab, "EA ", "E ");
+	if (!d->t->ea_path)
 		return (1);
 	return (0);
 }
 
-void	init_cub(t_data *cub, char *fl)
+void	init_cub(t_data *d, char *fl)
 {
 	char	**ftab;
 	char	**tmp;
 
 	ftab = nfile(fl);
 	if (!ftab)
-		error(cub, 0);
+		error(d, 0);
 	tmp = nmap(ftab);
 	if (!tmp)
 	{
 		free(ftab);
-		error(cub, 0);
+		error(d, 0);
 	}
-	cub->t = malloc(sizeof(t_textures));
-	if (!cub->t)
+	d->t = malloc(sizeof(t_textures));
+	if (!d->t)
 	{
 		freetab(ftab);
 		freetab(tmp);
-		error(cub, 0);
+		error(d, 0);
 	}
-	if (get_cub(cub, ftab, tmp))
-		error(cub, 1);
+	if (get_cub(d, ftab, tmp))
+		error(d, 1);
 	freetab(ftab);
 	freetab(tmp);
 	return ;

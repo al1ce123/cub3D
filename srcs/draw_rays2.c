@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:17:45 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:06:50 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:39:58 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,41 +18,41 @@ void	check_vertical_sub1(t_data *d)
 	if (d->ra > P2 && d->ra < P3)
 	{
 		d->rx = (((int) d->px >> 6) << 6) - 0.001;
-		d->ry = (d->px - d->rx) * d->nTan + d->py;
-		d->xo = -d->squareSize;
-		d->yo = -d->xo * d->nTan;
+		d->ry = (d->px - d->rx) * d->ntan + d->py;
+		d->xo = -d->squaresize;
+		d->yo = -d->xo * d->ntan;
 	}
 	if (d->ra < P2 || d->ra > P3)
 	{
-		d->rx = (((int) d->px >> 6) << 6) + d->squareSize;
-		d->ry = (d->px - d->rx) * d->nTan + d->py;
-		d->xo = d->squareSize;
-		d->yo = -d->xo * d->nTan;
+		d->rx = (((int) d->px >> 6) << 6) + d->squaresize;
+		d->ry = (d->px - d->rx) * d->ntan + d->py;
+		d->xo = d->squaresize;
+		d->yo = -d->xo * d->ntan;
 	}
 	if (d->ra == 0 || d->ra == PI)
 	{
 		d->rx = d->px;
 		d->ry = d->py;
-		d->dof = d->mapWidth;
+		d->dof = d->mapwidth;
 	}
 }
 
 void	check_vertical_sub2(t_data *d)
 {
-	while (d->dof < d->mapWidth)
+	while (d->dof < d->mapwidth)
 	{
 		d->mx = (int)(d->rx) >> 6;
 		d->my = (int)(d->ry) >> 6;
-		d->mp = d->my * d->mapWidth + d->mx;
-		if ((d->mp > 0 && d->mp < d->mapWidth * d->mapHeight
+		d->mp = d->my * d->mapwidth + d->mx;
+		if ((d->mp > 0 && d->mp < d->mapwidth * d->mapheight
 				&& d->map[d->mp] == '1')
-			|| (d->mp > 0 && d->mp < d->mapWidth * d->mapHeight
+			|| (d->mp > 0 && d->mp < d->mapwidth * d->mapheight
 				&& d->map[d->mp] == '4'))
 		{
 			d->vx = d->rx;
 			d->vy = d->ry;
-			d->disV = dist(d->px, d->py, d->vx, d->vy);
-			d->dof = d->mapWidth;
+			d->disv = dist(d->px, d->py, d->vx, d->vy);
+			d->dof = d->mapwidth;
 		}
 		else
 		{
@@ -111,9 +111,9 @@ void	draw_ceil_and_floor(t_data *d)
 		pc1.x = d->r + i + d->cpt;
 		pc1.y = 0;
 		pc2.x = d->r + i + d->cpt;
-		pc2.y = (int)d->lineO;
+		pc2.y = (int)d->lineo;
 		pf1.x = d->r + i + d->cpt;
-		pf1.y = (int)d->lineH + (int)d->lineO;
+		pf1.y = (int)d->lineh + (int)d->lineo;
 		pf2.x = d->r + i + d->cpt;
 		pf2.y = HEIGHT;
 		draw_line_ceil(&pc1, &pc2, d);

@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:44:12 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:14 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:39:58 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ void	check_minimap(t_data *d)
 
 void	init_minimap(t_data *d)
 {
-	d->pos = ((int)((int)d->py / 64)) * d->mapWidth + (int)(d->px / 64);
-	d->pos_start = d->pos - (2 * d->mapWidth) - 2;
-	d->pos_end = d->pos + (2 * d->mapWidth) + 2;
+	d->pos = ((int)((int)d->py / 64)) * d->mapwidth + (int)(d->px / 64);
+	d->pos_start = d->pos - (2 * d->mapwidth) - 2;
+	d->pos_end = d->pos + (2 * d->mapwidth) + 2;
 	d->x_start = 1100;
 	d->y_start = 0;
 }

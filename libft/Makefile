@@ -6,7 +6,7 @@
 #    By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 17:57:39 by jlecorne          #+#    #+#              #
-#    Updated: 2024/01/12 13:52:48 by nlence-l         ###   ########.fr        #
+#    Updated: 2024/01/17 14:47:21 by nlence-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ NAME			= libft.a
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+				@ar rcs $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)

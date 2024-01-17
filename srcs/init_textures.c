@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 18:29:54 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:07 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:27:52 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@ void	init_texture1(t_data *d)
 	temp = mlx_load_png("./textures/eagle.png");
 	if (!temp)
 		error(d, 3);
-	d->t->DO_img = mlx_texture_to_image(d->mlx, temp);
-	if (!d->t->DO_img)
+	d->t->do_img = mlx_texture_to_image(d->mlx, temp);
+	if (!d->t->do_img)
 		error(d, 3);
 	mlx_delete_texture(temp);
-	temp = mlx_load_png(d->t->NO_path);
+	temp = mlx_load_png(d->t->no_path);
 	if (!temp)
 		error(d, 4);
-	d->t->NO_img = mlx_texture_to_image(d->mlx, temp);
-	if (!d->t->NO_img)
+	d->t->no_img = mlx_texture_to_image(d->mlx, temp);
+	if (!d->t->no_img)
 		error(d, 4);
 	mlx_delete_texture(temp);
-	temp = mlx_load_png(d->t->SO_path);
+	temp = mlx_load_png(d->t->so_path);
 	if (!temp)
 		error(d, 5);
-	d->t->SO_img = mlx_texture_to_image(d->mlx, temp);
-	if (!d->t->SO_img)
+	d->t->so_img = mlx_texture_to_image(d->mlx, temp);
+	if (!d->t->so_img)
 		error(d, 5);
 	mlx_delete_texture(temp);
 }
@@ -65,11 +65,11 @@ void	init_texture2(t_data *d)
 	if (!d->t->torch1)
 		error(d, 7);
 	mlx_delete_texture(temp);
-	temp = mlx_load_png(d->t->WE_path);
+	temp = mlx_load_png(d->t->we_path);
 	if (!temp)
 		error(d, 8);
-	d->t->WE_img = mlx_texture_to_image(d->mlx, temp);
-	if (!d->t->WE_img)
+	d->t->we_img = mlx_texture_to_image(d->mlx, temp);
+	if (!d->t->we_img)
 		error(d, 8);
 	mlx_delete_texture(temp);
 }
@@ -98,11 +98,11 @@ void	init_texture4(t_data *d)
 {
 	mlx_texture_t	*temp;
 
-	temp = mlx_load_png(d->t->EA_path);
+	temp = mlx_load_png(d->t->ea_path);
 	if (!temp)
 		error(d, 11);
-	d->t->EA_img = mlx_texture_to_image(d->mlx, temp);
-	if (!d->t->EA_img)
+	d->t->ea_img = mlx_texture_to_image(d->mlx, temp);
+	if (!d->t->ea_img)
 		error(d, 11);
 	mlx_delete_texture(temp);
 	temp = mlx_load_png("./textures/torch4.png");

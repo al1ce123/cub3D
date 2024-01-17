@@ -6,7 +6,7 @@
 /*   By: nlence-l <nlence-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:18:06 by nlence-l          #+#    #+#             */
-/*   Updated: 2024/01/16 19:07:03 by nlence-l         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:22:47 by nlence-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,26 @@ void	draw_map(t_data *d)
 
 void	init_ceil_and_floor_color(t_data *d)
 {
-	d->RC = get_rgb(d->ccolor, 1);
-	if (d->RC == -1)
+	d->rc = get_rgb(d->ccolor, 1);
+	if (d->rc == -1)
 		error(d, 0);
-	d->GC = get_rgb(d->ccolor, 2);
-	if (d->GC == -1)
+	d->gc = get_rgb(d->ccolor, 2);
+	if (d->gc == -1)
 		error(d, 0);
-	d->BC = get_rgb(d->ccolor, 3);
-	if (d->BC == -1)
+	d->bc = get_rgb(d->ccolor, 3);
+	if (d->bc == -1)
 		error(d, 0);
-	d->TC = 255;
-	d->RF = get_rgb(d->fcolor, 1);
-	if (d->RF == -1)
+	d->tc = 255;
+	d->rf = get_rgb(d->fcolor, 1);
+	if (d->rf == -1)
 		error(d, 0);
-	d->GF = get_rgb(d->fcolor, 2);
-	if (d->GF == -1)
+	d->gf = get_rgb(d->fcolor, 2);
+	if (d->gf == -1)
 		error(d, 0);
-	d->BF = get_rgb(d->fcolor, 3);
-	if (d->BF == -1)
+	d->bf = get_rgb(d->fcolor, 3);
+	if (d->bf == -1)
 		error(d, 0);
-	d->TF = 255;
+	d->tf = 255;
 }
 
 void	init_data(t_data *d)
